@@ -1,0 +1,73 @@
+---
+const glassProducts = [
+  { image: '/assets/images/tiltsync.jpeg', name: 'Brooklyn', category: 'fabric', type: 'Fabric Laminated' },
+  { image: '/assets/images/slideform.jpeg', name: 'Paris', category: 'fabric', type: 'Fabric Laminated' },
+  { image: '/assets/images/airlift.jpeg', name: 'Venice', category: 'fabric', type: 'Fabric Laminated' },
+  { image: '/assets/images/glideup.jpeg', name: 'Maple', category: 'polymer', type: 'Polymer Mesh' },
+  { image: '/assets/images/slidestack.jpeg', name: 'Oak', category: 'polymer', type: 'Polymer Mesh' },
+  { image: '/assets/images/tiltsync.jpeg', name: 'Strand', category: 'metal', type: 'Metal Mesh' },
+  { image: '/assets/images/slideform.jpeg', name: 'Oxford', category: 'metal', type: 'Metal Mesh' },
+  { image: '/assets/images/airlift.jpeg', name: 'Regent', category: 'metal', type: 'Metal Mesh' },
+];
+---
+
+<section id="glass" style="padding: 5rem 0;">
+  <div class="muro-container">
+    <div style="text-align: center; margin-bottom: 4rem;" class="fade-in">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">The Glass Collection</h2>
+      <p style="font-size: 0.95rem; color: #8a7968; letter-spacing: 0.05em; max-width: 700px; margin: 0 auto 3rem;">
+        Exquisite decorative glass solutions with artistic expression
+      </p>
+
+      <div id="glass-filters" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="fabric">Fabric Laminated</button>
+        <button class="filter-tab" data-filter="polymer">Polymer Mesh</button>
+        <button class="filter-tab" data-filter="metal">Metal Mesh</button>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 1rem;" class="fade-in">
+      <button class="carousel-nav" onclick="scrollCarousel('glass-track', -1)" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+
+      <div id="glass-track" class="carousel-track" style="flex: 1;">
+        {glassProducts.map((product) => (
+          <div class={`product-card glass-item ${product.category}`} data-category={product.category}>
+            <img src={product.image} alt={product.name} loading="lazy" />
+            <div class="product-card-content">
+              <h3 style="font-size: 1.25rem; margin-bottom: 1rem; letter-spacing: 0.15em;">{product.name}</h3>
+              <p style="font-size: 0.875rem; color: #8a7968;">{product.type}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button class="carousel-nav" onclick="scrollCarousel('glass-track', 1)" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const filterBtns = document.querySelectorAll('#glass-filters .filter-tab');
+  const glassItems = document.querySelectorAll('.glass-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      glassItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

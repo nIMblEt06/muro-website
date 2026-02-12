@@ -1,0 +1,87 @@
+<section id="contact" style="padding: 5rem 0;">
+  <div class="muro-container">
+    <div style="text-align: center; margin-bottom: 4rem;" class="fade-in">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">Get in Touch</h2>
+      <p style="font-size: 0.95rem; color: #8a7968;">Let us help you frame the life you desire</p>
+    </div>
+
+    <div class="fade-in contact-grid">
+      <div>
+        <form id="contact-form">
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Full Name</label>
+            <input type="text" class="form-input" required />
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Email Address</label>
+            <input type="email" class="form-input" required />
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Phone Number</label>
+            <input type="tel" class="form-input" required />
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Message</label>
+            <textarea class="form-input" rows="5" style="min-height: 150px; resize: vertical;" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="contact-info-item">
+          <h4 style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Visit Our Showroom</h4>
+          <p style="font-size: 0.95rem; line-height: 1.8;">267-268 Classic Tower, New Aatish Market<br />opposite Sunny Mart, Gopalpura Bypass<br />Jaipur 302020</p>
+        </div>
+
+        <div class="contact-info-item">
+          <h4 style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Call Us</h4>
+          <p style="font-size: 0.95rem; line-height: 1.8;">+91 99826 77861<br />+91 93580 77522</p>
+        </div>
+
+        <div class="contact-info-item">
+          <h4 style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Email Us</h4>
+          <p style="font-size: 0.95rem;">muroseries@gmail.com</p>
+        </div>
+
+        <div style="padding-bottom: 0;">
+          <h4 style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968; margin-bottom: 0.75rem;">Website</h4>
+          <p style="font-size: 0.95rem;">muroseries.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+
+  .contact-info-item {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(61, 48, 38, 0.1);
+  }
+
+  .contact-info-item:last-of-type {
+    border-bottom: none;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you for your interest. We will contact you shortly.');
+    (e.target as HTMLFormElement).reset();
+  });
+</script>

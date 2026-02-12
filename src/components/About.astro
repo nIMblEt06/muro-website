@@ -1,0 +1,49 @@
+---
+const stats = [
+  { number: '500+', label: 'Projects Completed' },
+  { number: '50+', label: 'Cities Served' },
+  { number: '17+', label: 'Product Lines' },
+  { number: '10+', label: 'Years Experience' },
+];
+---
+
+<section id="about" style="padding: 5rem 0;">
+  <div class="muro-container">
+    <div style="text-align: center; margin-bottom: 5rem;" class="fade-in">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">About MURO</h2>
+      <p style="font-size: 1.1rem; line-height: 2; color: #8a7968; max-width: 800px; margin: 0 auto;">
+        MURO, a distinguished division of Team Classic and Vartmaa, represents the pinnacle of engineered craftsmanship in luxury outdoor living solutions. Our commitment to innovation, quality, and design excellence has established us as leaders in premium aluminium architectural systems.
+      </p>
+    </div>
+
+    <div class="fade-in stats-grid">
+      {stats.map((stat) => (
+        <div class="stat-card">
+          <div class="stat-number">{stat.number}</div>
+          <p style="font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1rem; color: #8a7968;">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

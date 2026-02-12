@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
+import VideoCarousel from '../components/VideoCarousel.astro';
+import FeatureHighlight from '../components/FeatureHighlight.astro';
+import GlassCollection from '../components/GlassCollection.astro';
+import About from '../components/About.astro';
+import QuoteStrip from '../components/QuoteStrip.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+
+const verandahProducts = [
+  { image: '/assets/images/tiltsync.jpeg', name: 'TiltSync', description: 'Innovative tilt and turn pergola system with synchronized motorized control for perfect outdoor ambiance.' },
+  { image: '/assets/images/slideform.jpeg', name: 'Slideform', description: 'Premium lift and slide door for seamless indoor-outdoor living with elegant aesthetics.' },
+  { image: '/assets/images/airlift.jpeg', name: 'Airlift', description: 'Advanced casement windows engineered for superior ventilation and modern style.' },
+  { image: '/assets/images/glideup.jpeg', name: 'Glide-up', description: 'Precision-engineered sliding window system with effortless operation and sleek design.' },
+  { image: '/assets/images/slidestack.jpeg', name: 'Slide&Stack', description: 'Multi-panel sliding and folding system for expansive openings and panoramic views.' },
+];
+
+const glazingProducts = [
+  { image: '/assets/images/slidestack.jpeg', name: 'Slide&Stack', description: 'Multi-panel balcony system with seamless indoor-outdoor integration.' },
+  { image: '/assets/images/tiltsync.jpeg', name: 'Skyframe', description: 'Fixed skylight system bringing natural light to interior spaces.' },
+  { image: '/assets/images/slideform.jpeg', name: 'Skybreeze', description: 'Openable skylight with automated ventilation and rain sensors.' },
+  { image: '/assets/images/airlift.jpeg', name: 'Fold-up', description: 'Vertical folding window system maximizing opening space.' },
+  { image: '/assets/images/glideup.jpeg', name: 'Lift-up', description: 'Vertical lift window offering expansive views and ventilation.' },
+  { image: '/assets/images/tiltsync.jpeg', name: 'Airlift', description: 'Advanced windbreaker system for protected outdoor comfort.' },
+];
+
+const horizontalVideos = [
+  { src: '/assets/videos/h1.mp4', label: 'Installation Process' },
+  { src: '/assets/videos/h2.mp4', label: 'Product Demo' },
+  { src: '/assets/videos/h3.mp4', label: 'Engineering Detail' },
+  { src: '/assets/videos/h4.mp4', label: 'Showroom Tour' },
+  { src: '/assets/videos/h5.mp4', label: 'Quality Testing' },
+];
+
+const verticalVideos = [
+  { src: '/assets/videos/v1.mp4', label: 'Design Philosophy' },
+  { src: '/assets/videos/v2.mp4', label: 'Customer Stories' },
+  { src: '/assets/videos/v3.mp4', label: 'Innovation Lab' },
+  { src: '/assets/videos/v4.mp4', label: 'Behind the Scenes' },
+  { src: '/assets/videos/v5.mp4', label: 'Sustainability' },
+];
+---
+
+<Layout>
+  <Navbar />
+  <Hero />
+
+  <ProductCarousel
+    id="verandah"
+    title="The Verandah Collection"
+    subtitle="Sophisticated outdoor living solutions engineered for modern elegance"
+    products={verandahProducts}
+  />
+
+  <SectionDivider />
+
+  <VideoCarousel
+    id="h-videos"
+    title="Craftsmanship in Motion"
+    subtitle="Watch our precision engineering come to life"
+    videos={horizontalVideos}
+    orientation="horizontal"
+  />
+
+  <SectionDivider />
+
+  <FeatureHighlight />
+
+  <SectionDivider />
+
+  <GlassCollection />
+
+  <SectionDivider />
+
+  <VideoCarousel
+    id="v-videos"
+    title="Stories of Elegance"
+    subtitle="Experience MURO through a different lens"
+    videos={verticalVideos}
+    orientation="vertical"
+  />
+
+  <SectionDivider />
+
+  <ProductCarousel
+    id="glazing"
+    title="Architectural Glazing Solutions"
+    subtitle="Premium windows and skylights engineered for performance"
+    products={glazingProducts}
+  />
+
+  <SectionDivider />
+
+  <About />
+  <QuoteStrip />
+  <Contact />
+  <Footer />
+</Layout>
