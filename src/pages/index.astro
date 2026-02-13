@@ -44,6 +44,14 @@ const verticalVideos = [
   { src: '/assets/videos/v4.mp4', label: 'Behind the Scenes' },
   { src: '/assets/videos/v5.mp4', label: 'Sustainability' },
 ];
+
+const pergolaVideos = [
+  { src: '/assets/pergolas/p1.mp4', label: 'Louvered Elegance' },
+  { src: '/assets/pergolas/p2.mp4', label: 'Retractable Shade' },
+  { src: '/assets/pergolas/p3.mp4', label: 'Motorized Control' },
+  { src: '/assets/pergolas/p4.mp4', label: 'Weather Adaptive' },
+  { src: '/assets/pergolas/p5.mp4', label: 'Premium Finish' },
+];
 ---
 
 <Layout>
@@ -80,7 +88,7 @@ const verticalVideos = [
   <VideoCarousel
     id="v-videos"
     title="Stories of Elegance"
-    subtitle="Experience MURO through a different lens"
+    subtitle="Experience Fensterbau Windoors through a different lens"
     videos={verticalVideos}
     orientation="vertical"
   />
@@ -92,6 +100,16 @@ const verticalVideos = [
     title="Architectural Glazing Solutions"
     subtitle="Premium windows and skylights engineered for performance"
     products={glazingProducts}
+  />
+
+  <SectionDivider />
+
+  <VideoCarousel
+    id="pergola-videos"
+    title="The Pergola Collection"
+    subtitle="Outdoor living redefined with motorized louvered pergolas"
+    videos={pergolaVideos}
+    orientation="horizontal"
   />
 
   <SectionDivider />

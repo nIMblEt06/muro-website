@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ========================================
-   MURO — Zara Luxury Editorial Theme
+   Fensterbau Windoors — Zara Luxury Editorial Theme
    Warm Marble Colors + All Serif
    ======================================== */
 
@@ -164,7 +164,7 @@
   }
 
   /* Container */
-  .muro-container {
+  .fw-container {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
@@ -173,7 +173,7 @@
   }
 
   @media (max-width: 768px) {
-    .muro-container {
+    .fw-container {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
@@ -258,6 +258,17 @@
 
   .video-card-h:hover {
     border-color: #b89b64;
+  }
+
+  .video-card-interactive {
+    position: relative;
+    z-index: 1;
+  }
+
+  .video-card-interactive:hover {
+    transform: scale(1.04);
+    z-index: 10;
+    box-shadow: 0 8px 30px rgba(61, 48, 38, 0.15);
   }
 
   .video-card-h video {

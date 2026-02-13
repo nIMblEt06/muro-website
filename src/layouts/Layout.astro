@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = 'MURO — Elevating Smart Living Through Engineered Craftsmanship',
+  title = 'Fensterbau Windoors — Elevating Smart Living Through Engineered Craftsmanship',
   description = 'Premium aluminium windows, doors, pergolas, skylights & outdoor living solutions by Team Classic / Vartmaa. Framing a Life You Desire.'
 } = Astro.props;
 ---
@@ -28,11 +28,11 @@ const {
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "MURO",
+    "name": "Fensterbau Windoors",
     "description": "Premium aluminium windows, doors, pergolas, skylights & outdoor living solutions",
-    "url": "https://muroseries.com",
+    "url": "https://fensterbauwindoors.com",
     "telephone": ["+919982677861", "+919358077522"],
-    "email": "muroseries@gmail.com",
+    "email": "fensterbauwindoors@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "267-268 Classic Tower, New Aatish Market, opposite Sunny Mart, Gopalpura Bypass",
@@ -89,6 +89,42 @@ const {
         track.scrollBy({ left: direction * 400, behavior: 'smooth' });
       }
     };
+
+    // Lazy load videos — only load src when near viewport
+    const videoLazyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          const source = video.querySelector('source[data-src]');
+          if (source) {
+            source.src = source.dataset.src;
+            source.removeAttribute('data-src');
+            video.load();
+            video.play().catch(() => {});
+          }
+          videoLazyObserver.unobserve(video);
+        }
+      });
+    }, { rootMargin: '300px 0px' });
+
+    document.querySelectorAll('.video-card-interactive video').forEach(video => {
+      videoLazyObserver.observe(video);
+    });
+
+    // Video hover: unmute on enter, mute on leave
+    document.querySelectorAll('.video-card-interactive').forEach(card => {
+      const video = card.querySelector('video');
+      if (!video) return;
+
+      card.addEventListener('mouseenter', () => {
+        video.muted = false;
+        video.play().catch(() => {});
+      });
+
+      card.addEventListener('mouseleave', () => {
+        video.muted = true;
+      });
+    });
   </script>
 </body>
 </html>

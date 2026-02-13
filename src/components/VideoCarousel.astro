@@ -16,8 +16,8 @@ const { id, title, subtitle, videos, orientation } = Astro.props;
 const cardClass = orientation === 'horizontal' ? 'video-card-h' : 'video-card-v';
 ---
 
-<section style="padding: 5rem 0;">
-  <div class="muro-container">
+<section id={id} style="padding: 5rem 0;">
+  <div class="fw-container">
     <div style="text-align: center; margin-bottom: 4rem;" class="fade-in">
       <h2 class="section-title" style="margin-bottom: 1.5rem;">{title}</h2>
       {subtitle && <p style="font-size: 0.95rem; color: #8a7968; letter-spacing: 0.05em; max-width: 700px; margin: 0 auto;">{subtitle}</p>}
@@ -30,9 +30,9 @@ const cardClass = orientation === 'horizontal' ? 'video-card-h' : 'video-card-v'
 
       <div id={`${id}-track`} class="carousel-track" style="flex: 1;">
         {videos.map((video) => (
-          <div class={cardClass}>
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src={video.src} type="video/mp4" />
+          <div class={`${cardClass} video-card-interactive`}>
+            <video muted loop playsinline controls preload="none">
+              <source data-src={video.src} type="video/mp4" />
             </video>
             <div class="video-card-label">
               <p style="font-size: 0.875rem; letter-spacing: 0.15em; text-transform: uppercase; color: #8a7968;">{video.label}</p>
